@@ -1,4 +1,6 @@
+import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
+import Main from "./components/Main/Main";
 import "./globals.css";
 
 export const metadata = {
@@ -12,9 +14,12 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="stylesheet" href="https://use.typekit.net/rgm1dlw.css" />
       </head>
-      <body className="font-[sofia-pro,_sans-serif] font-medium not-italic text-slate-100/70 antialiased">
-        <Header />
-        <main className="min-h-screen">{children}</main>
+      <body className="bg-slate-900 font-[sofia-pro,_sans-serif] font-medium not-italic text-slate-100/70 antialiased">
+        <div className="flex min-h-screen flex-col space-y-4 bg-[#2A3765]/30">
+          <Header />
+          <Main>{children}</Main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
