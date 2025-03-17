@@ -26,7 +26,7 @@ body {
   min-height: 100vh;
 }
 
-/* @layer utilities {
+@layer utilities {
   .text-balance {
     text-wrap: balance;
   }
@@ -36,4 +36,4 @@ body {
   .animation-delay-4000 {
     animation-delay: 4s;
   }
-} */
+}
