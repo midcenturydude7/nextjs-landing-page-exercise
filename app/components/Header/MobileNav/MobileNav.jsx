@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { motion, useCycle, AnimatePresence } from "framer-motion";
 import { mobileNavItems } from "../../../lib/mobileNavItems";
 import { menuSlide, slide } from "../../../lib/anim";
+import Curve from "./Curve/Curve";
 
 export default function MobileNav() {
   const pathname = usePathname();
@@ -18,11 +19,88 @@ export default function MobileNav() {
           onClick={() => toggleMobileNavbar()}
           className="flex flex-col space-y-2"
         >
-          <motion.span className="block h-[0.125rem] w-8 bg-slate-400/75" />
-          <motion.span className="block h-[0.125rem] w-8 bg-slate-400/75" />
-          <motion.span className="block h-[0.125rem] w-8 bg-slate-400/75" />
+          <motion.span
+            variants={{
+              closed: { rotate: 0, y: 0 },
+              open: { rotate: 45, y: 8 },
+            }}
+            className="block h-[0.125rem] w-8 bg-slate-400/75"
+          />
+          <motion.span
+            variants={{
+              closed: { opacity: 1 },
+              open: { opacity: 0 },
+            }}
+            className="block h-[0.125rem] w-8 bg-slate-400/75"
+          />
+          <motion.span
+            variants={{
+              closed: { rotate: 0, y: 0 },
+              open: { rotate: -45, y: -12 },
+            }}
+            className="block h-[0.125rem] w-8 bg-slate-400/75"
+          />
         </motion.button>
       </div>
+      <AnimatePresence mode="wait">
+        {mobileNavbar && (
+          <motion.div
+            key="mobile-navbar"
+            variants={menuSlide}
+            initial="initial"
+            animate="enter"
+            exit="exit"
+            className="fixed inset-0 flex h-full flex-col items-center justify-center gap-10 bg-slate-100"
+          >
+            <motion.div className="flex flex-col space-y-3">
+              {mobileNavItems.map(({ id, path, label }) => {
+                const isActive = path === pathname;
+                return (
+                  <Link key={id} href={path}>
+                    <motion.button
+                      data-active={isActive}
+                      onClick={() => toggleMobileNavbar(path)}
+                      variants={slide}
+                      initial={"initial"}
+                      animate="enter"
+                      exit="exit"
+                      className="text-4xl text-slate-400/80"
+                    >
+                      {label}
+                    </motion.button>
+                  </Link>
+                );
+              })}
+            </motion.div>
+            <motion.div className="h-px w-[95%] bg-slate-500/20" />
+            <motion.div
+              variants={slide}
+              initial="initial"
+              animate="enter"
+              exit="exit"
+            >
+              <motion.ul
+                variants={slide}
+                initial="initial"
+                animate="enter"
+                exit="exit"
+                className="flex items-center justify-center space-x-8"
+              >
+                <li>
+                  <div className="h-10 w-10 rounded-lg bg-slate-400/80" />
+                </li>
+                <li>
+                  <div className="h-10 w-10 rounded-lg bg-slate-400/80" />
+                </li>
+                <li>
+                  <div className="h-10 w-10 rounded-lg bg-slate-400/80" />
+                </li>
+              </motion.ul>
+            </motion.div>
+            <Curve />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }
