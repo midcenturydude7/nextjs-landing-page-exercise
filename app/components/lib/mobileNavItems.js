@@ -17,6 +17,6 @@ export const mobileNavItems = [
   },
   {
     path: "/contact",
-    label: "Contact",
+    label: "contact",
   },
 ].map((n, idx) => ({ ...n, id: idx + 1 }));
