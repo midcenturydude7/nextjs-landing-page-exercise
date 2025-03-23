@@ -5,7 +5,7 @@ import { mobileNavItems } from "../../../lib/mobileNavItems";
 
 export default function Navbar() {
   return (
-    <nav className="hidden space-x-8 lg:block">
+    <nav className="hidden space-x-8 lg:flex lg:flex-grow lg:justify-center">
       {mobileNavItems.map(({ id, path, label }) => (
         <Link
           key={id}
