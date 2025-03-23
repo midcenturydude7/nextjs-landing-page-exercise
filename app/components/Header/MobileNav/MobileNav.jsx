@@ -12,7 +12,7 @@ export default function MobileNav() {
   const [mobileNavbar, toggleMobileNavbar] = useCycle(false, true);
 
   return (
-    <nav className="px-8">
+    <nav className="px-8 lg:hidden">
       <div className="relative z-10">
         <motion.button
           animate={mobileNavbar ? "open" : "closed"}

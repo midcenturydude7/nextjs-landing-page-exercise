@@ -45,9 +45,13 @@ export const scale = {
   // active: { scale: 0.9, transition: { duration: 0.2 } },
 };
 
-const initialPath = `M100 0 L200 0 L200 ${window.innerHeight} L100 ${window.innerHeight} Q-100 ${window.innerHeight / 2} 100 0`;
+const initialPath = `M100 0 L200 0 L200 ${window.innerHeight} L100 ${
+  window.innerHeight
+} Q-100 ${window.innerHeight / 2} 100 0`;
 
-const targetPath = `M100 0 L200 0 L200 ${window.innerHeight} L100 ${window.innerHeight} Q-100 ${window.innerHeight / 2} 100 0`;
+const targetPath = `M100 0 L200 0 L200 ${window.innerHeight} L100 ${
+  window.innerHeight
+} Q-100 ${window.innerHeight / 2} 100 0`;
 
 export const curve = {
   initial: {

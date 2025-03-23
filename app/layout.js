@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="stylesheet" href="https://use.typekit.net/rgm1dlw.css" />
       </head>
-      <body className="bg-slate-900 font-[sofia-pro,_sans-serif] font-medium not-italic text-slate-100/70 antialiased">
+      <body className="font-[sofia-pro,_sans-serif] font-medium not-italic text-slate-100/70 antialiased">
         <div className="flex min-h-screen flex-col space-y-4 bg-[#2A3765]/30">
           <Header />
           <Main>{children}</Main>
