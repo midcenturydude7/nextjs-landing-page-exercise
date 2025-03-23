@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
         <link rel="stylesheet" href="https://use.typekit.net/rgm1dlw.css" />
       </head>
       <body className="font-[sofia-pro,_sans-serif] font-medium not-italic text-slate-100/70 antialiased">
-        <div className="flex min-h-screen flex-col space-y-4 bg-[#2A3765]/30">
+        <div className="bg-gradient-to-b from-[rgba(12,12,39,0.83)] to-[rgb(0,2,8)] flex min-h-screen flex-col space-y-4">
           <Header />
           <Main>{children}</Main>
           <Footer />

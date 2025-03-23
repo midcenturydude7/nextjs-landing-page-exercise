@@ -4,7 +4,7 @@ import MobileNav from "./MobileNav/MobileNav";
 
 export default function Header() {
   return (
-    <header className="flex border-b-[1px] border-slate-300/10 p-8 shadow-2xl">
+    <header className="flex border-b-[1px] border-slate-300/10 bg-[rgba(0,2,8,0.61)] p-8 shadow-2xl shadow-black/80">
       <Logo />
       <Navbar />
       {/* The mobile navbar is hidden on larger screens */}
