@@ -50,7 +50,7 @@ export default function MobileNav() {
             initial="initial"
             animate="enter"
             exit="exit"
-            className="fixed inset-0 flex h-full flex-col items-center justify-center gap-10 bg-slate-100"
+            className="fixed inset-0 flex h-full flex-col items-center justify-center gap-10 bg-gradient-to-b from-[rgba(12,12,39,1)] to-[rgb(0,2,8)]"
           >
             <motion.div className="flex flex-col space-y-3">
               {mobileNavItems.map(({ id, path, label }) => {
