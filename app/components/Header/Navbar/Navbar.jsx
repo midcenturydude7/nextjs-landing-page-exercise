@@ -10,7 +10,7 @@ export default function Navbar() {
         {mobileNavItems.map(({ id, path, label }) => (
           <div
             key={id}
-            className="rounded-lg border border-transparent px-4 pb-[0.75em] pt-2 transition-all duration-[2s] ease-in-out hover:bg-slate-300/10 hover:border-slate-300/30"
+            className="rounded-lg border border-transparent px-4 pb-[0.75em] pt-2 transition-all duration-[1.5s] ease-in-out hover:border-slate-300/30 hover:bg-[#0d0d34]"
           >
             <Link
               href={path}
