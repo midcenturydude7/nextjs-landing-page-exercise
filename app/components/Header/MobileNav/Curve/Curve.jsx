@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 // import { curve } from "../../../../lib/anim";
 
 export default function Curve() {
-  const strokeColor = "rgb(116, 162, 253)";
+  const strokeColor = "rgb(0, 183, 255)";
   const initialPath = `M100 0 L200 0 L200 ${window.innerHeight} L100 ${window.innerHeight} Q-100 ${window.innerHeight / 2} 100 0`;
 
   const targetPath = `M100 0 L200 0 L200 ${window.innerHeight} L100 ${window.innerHeight} Q-100 ${window.innerHeight / 2} 100 0`;
@@ -43,7 +43,7 @@ export default function Curve() {
         exit="exit"
         fill="url(#curveGradient)"
         stroke={strokeColor}
-        strokeWidth="0.0125em"
+        strokeWidth="0.0115em"
       />
     </svg>
   );

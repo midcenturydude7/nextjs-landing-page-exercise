@@ -1,6 +1,6 @@
 export default function Icons() {
   return (
-    <div className="hidden lg:block">
+    <div className="hidden lg:flex">
       <ul className="flex items-center justify-center space-x-4">
         <li>
           <div className="h-7 w-7 rounded-lg bg-slate-300/70" />
