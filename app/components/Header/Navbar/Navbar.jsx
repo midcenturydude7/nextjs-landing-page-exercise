@@ -3,11 +3,13 @@ import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { mobileNavItems } from "../../../lib/mobileNavItems";
+import { motion, AnimatePresence } from "framer-motion";
 import cn from "../../../lib/utils";
 
 export default function Navbar() {
   const pathname = usePathname();
   const [selected, setSelected] = React.useState(pathname);
+  const [focused, setFocused] = React.useState(null);
 
   return (
     <nav className="hidden lg:flex lg:flex-grow lg:justify-center">
@@ -18,9 +20,18 @@ export default function Navbar() {
             return (
               <li key={id} className="">
                 <Link href={path}>
-                  <button
+                  <motion.button
+                    layout
                     data-active={isActive}
                     onClick={() => setSelected(path)}
+                    onKeyDown={(e) =>
+                      e.key === "Enter" ? setSelected(path) : null
+                    }
+                    onFocus={() => setFocused(path)}
+                    onBlur={() => setFocused(null)}
+                    onPointerEnter={() => setFocused(path)}
+                    onPointerLeave={() => setFocused(null)}
+                    tabIndex={0}
                     className={cn(
                       "nav-button rounded-lg border border-transparent px-4 pb-[0.75em] pt-2 text-slate-300/70 transition-all duration-1000 ease-in-out hover:border-[#00b7ff27] hover:text-gray-200/80",
                       selected === path
@@ -28,8 +39,32 @@ export default function Navbar() {
                         : "",
                     )}
                   >
-                    {label}
-                  </button>
+                    <motion.span layout className="z-10 select-none h-[2rem] w-[5rem] rounded-lg">
+                      {label}
+                    </motion.span>
+                    <AnimatePresence>
+                      {focused === path ? (
+                        <motion.div
+                          className="nav-highlight"
+                          transition={{
+                            layout: {
+                              duration: 0.375,
+                              ease: "easeOut",
+                            },
+                            duration: 1,
+                          }}
+                          exit={{
+                            opacity: 0,
+                            transition: {
+                              duration: 1,
+                              ease: "easeOut",
+                            },
+                          }}
+                          layoutId="highlight"
+                        />
+                      ) : null}
+                    </AnimatePresence>
+                  </motion.button>
                 </Link>
               </li>
             );

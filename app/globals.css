@@ -29,6 +29,18 @@
     background: linear-gradient(to bottom, #000208, #271449);
     opacity: 1;
   }
+
+  .nav-highlight {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: linear-gradient(to bottom, #000208, #141449);
+    border-radius: 0.5rem;
+  }
+
+  .nav-highlight-active {
+    background: linear-gradient(to bottom, #000208, #271449);
+  }
 }
 
 @tailwind utilities;
