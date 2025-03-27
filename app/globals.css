@@ -1,5 +1,36 @@
 @tailwind base;
 @tailwind components;
+
+@layer components {
+  .nav-button {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .nav-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, #000208, #141449);
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 1s ease-in-out;
+  }
+
+  .nav-button:hover::before {
+    opacity: 1;
+  }
+
+  .nav-button-active::before {
+    background: linear-gradient(to bottom, #000208, #271449);
+    opacity: 1;
+  }
+}
+
 @tailwind utilities;
 
 :root {

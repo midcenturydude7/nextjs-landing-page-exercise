@@ -22,9 +22,9 @@ export default function Navbar() {
                     data-active={isActive}
                     onClick={() => setSelected(path)}
                     className={cn(
-                      "rounded-lg border border-transparent px-4 pb-[0.75em] pt-2 text-slate-300/70 transition-all duration-[1s] ease-in-out hover:border-[#00b7ff27] hover:bg-gradient-to-b hover:from-[#000208] hover:to-[#141449] hover:text-gray-200/80",
+                      "nav-button rounded-lg border border-transparent px-4 pb-[0.75em] pt-2 text-slate-300/70 transition-all duration-1000 ease-in-out hover:border-[#00b7ff27] hover:text-gray-200/80",
                       selected === path
-                        ? "cursor-default border-[#00b7ff27] bg-gradient-to-b from-[#000208] to-[#271449] text-gray-200/80 hover:bg-gradient-to-b hover:from-[#000208] hover:to-[#271449]"
+                        ? "nav-button-active cursor-default border-[#00b7ff27] text-gray-200/80"
                         : "",
                     )}
                   >
